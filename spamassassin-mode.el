@@ -1,9 +1,9 @@
 ;;; spamassassin-mode.el --- spamassassin rules editing commands for Emacs
 
-;;; Copyright (C) 2004 Eugene Morozov <eugene@renice.org>
+;;; Copyright (C) 2004 Eugene Morozov <eugene.morozov@gmail.com>
 
-;; Author: Eugene Morozov <eugene@renice.org>
-;; Maintainer: Eugene Morozov <eugene@renice.org>
+;; Author: Eugene Morozov <eugene.morozov@gmail.com>
+;; Maintainer: Eugene Morozov <eugene.morozov@gmail.com>
 ;; Keywords: spamassassin
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 
 ;; To Do's:
 
-;; * Improve font-lock code (highlite rule names in meta rules, 
+;; * Improve font-lock code (highlite rule names in meta rules,
 ;;   deal with quotes somehow
 ;; * Make last argument for spamassassin-assassin-file be the default
 ;;   argument for the next invocation
@@ -61,11 +61,11 @@
 (defvar spamassassin-mode-abbrev-table
   (let ((ac abbrevs-changed))
     (define-abbrev-table 'spamassassin-mode-abbrev-table ())
-    (define-abbrev spamassassin-mode-abbrev-table "bdy" "" 
+    (define-abbrev spamassassin-mode-abbrev-table "bdy" ""
       'spamassassin-body-rule-skeleton)
-    (define-abbrev spamassassin-mode-abbrev-table "hdr" "" 
+    (define-abbrev spamassassin-mode-abbrev-table "hdr" ""
       'spamassassin-header-rule-skeleton)
-    (define-abbrev spamassassin-mode-abbrev-table "mta" "" 
+    (define-abbrev spamassassin-mode-abbrev-table "mta" ""
       'spamassassin-meta-rule-skeleton)
     (setq abbrevs-changed ac)
     spamassassin-mode-abbrev-table)
@@ -157,8 +157,8 @@ for them. Prefix arg runs spamassassin in debug mode."
 (defun spamassassin-optimize-regexp (start end)
   "Filter selection through regex-opt program."
   (interactive "r")
-  (shell-command-on-region start end 
-                           (concat "regex-opt " 
+  (shell-command-on-region start end
+                           (concat "regex-opt "
                                    (shell-quote-argument (buffer-substring start end)))
                            t t))
 
